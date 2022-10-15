@@ -24,7 +24,10 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
 
-    implementation 'com.github.MarkSlat:Part_A:master-SNAPSHOT'
+    implementation 'org.terasoluna.gfw:terasoluna-gfw-jodatime:5.7.1.RELEASE'
+
+    // implementation 'com.github.MarkSlat:Part_A:master-SNAPSHOT'
+    implementation 'com.github.MarkSlat:Part_A:V1.1.1'
 
 }
 

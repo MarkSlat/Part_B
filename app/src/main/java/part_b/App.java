@@ -6,7 +6,7 @@ package part_b;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.joda.time.DateTime;
+import org.joda.time.*;
 
 import part_a.*;
 import part_a.Module;
@@ -16,6 +16,7 @@ public class App {
     public App() {
 
         List<Student> students = new ArrayList<Student>();
+        List<CourseProgramme> courses = new ArrayList<CourseProgramme>();
 
         students.add(new Student("Mark", 21, "11/09/2001", 19459946));
 
@@ -28,26 +29,34 @@ public class App {
         Lecturer Morgan = new Lecturer("Fearghal Morgan", 1, "13/10/2022", "EE451");
 
         Module Embedded_Systems = new Module("Embedded Systems Applications Programming", "EE347", Corcoran);
-        Module system_on_chip = new Module("System on Chip Design 1", "EE451", Morgan);
+        Module System_on_chip = new Module("System on Chip Design 1", "EE451", Morgan);
         Module SoftwareEngineering_III = new Module("Software engineering III", "CT417", Schukat);
         
         
-        CourseProgramme ECE = new CourseProgramme("ECE", DateTime.parse("2022-09-5T11:00"), DateTime.parse("2022-03-31T15:00"));
+        courses.add(new CourseProgramme("ECE", DateTime.parse("2022-09-5T11:00"), DateTime.parse("2022-03-31T15:00")));
         
         for (int i = 0; i < students.size(); i++) {
-            System.out.println(students.get(i).getUsername());
+            students.get(i).addCourses(courses.get(0));
+            students.get(i).addModules(SoftwareEngineering_III);
+            students.get(i).addModules(Embedded_Systems);
+            students.get(i).addModules(System_on_chip);
+            courses.get(0).addStudents(students.get(i));
+            SoftwareEngineering_III.addStudents(students.get(i));
+            Embedded_Systems.addStudents(students.get(i));
+            System_on_chip.addStudents(students.get(i));            
         }
+        
+        courses.get(0).addModules(SoftwareEngineering_III);
+        courses.get(0).addModules(Embedded_Systems);
+        courses.get(0).addModules(System_on_chip);
 
 
-        //Mark.addCourses(ECE);
-        //Mark.addModules(SoftwareEngineering_III);
-        //ECE.addStudents(Mark);
-        //ECE.addModules(SoftwareEngineering_III);
-        //SoftwareEngineering_III.addStudents(Mark);
-        //SoftwareEngineering_III.addCourses(ECE);
+        // System.out.println(students.get(0).getUsername());
+        //System.out.println(students.get(1).toString());
+        // students.get(0).getUsername();
 
-        for (int i = 0; i < students.size(); i++) {
-            System.out.println(students.get(i).getUsername());
+        for (int i = 0; i < courses.size(); i++) {
+            System.out.println(courses.get(i));
         }
 
     }
