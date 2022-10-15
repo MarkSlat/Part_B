@@ -50,11 +50,6 @@ public class App {
         courses.get(0).addModules(Embedded_Systems);
         courses.get(0).addModules(System_on_chip);
 
-
-        // System.out.println(students.get(0).getUsername());
-        //System.out.println(students.get(1).toString());
-        // students.get(0).getUsername();
-
         for (int i = 0; i < courses.size(); i++) {
             System.out.println(courses.get(i));
         }
